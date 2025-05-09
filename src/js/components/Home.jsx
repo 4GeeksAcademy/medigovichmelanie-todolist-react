@@ -35,18 +35,20 @@ const Home = () => {
                                 {tasks.length === 0 ? (
                                     <p className="text-center text-muted py-3">No hay tareas, añadir tareas...</p>
                                 ) : (
-                                    tasks.map(task => (
-                                        <div key={task.id} className="task-item d-flex justify-content-between align-items-center p-3 mb-2 bg-light rounded"
-                                        >
-                                            <span>{task.text}</span>
-                                            <button
-                                                onClick={() => deleteTask(task.id)}
-                                                className="btn btn-sm btn-danger btn-delete">
-                                                x
-                                            </button>
-                                        </div>
-                                    ))
-
+                                    <>
+                                        <p className="text-center text-muted py-1">{tasks.length} {tasks.length === 1 ? 'tarea pendiente' : 'tareas pendientes'}</p>
+                                        {tasks.map(task => (
+                                            <div key={task.id} className="task-item d-flex justify-content-between align-items-center p-3 mb-2 bg-light rounded"
+                                            >
+                                                <span>{task.text}</span>
+                                                <button
+                                                    onClick={() => deleteTask(task.id)}
+                                                    className="btn btn-sm btn-danger btn-delete">
+                                                    x
+                                                </button>
+                                            </div>
+                                        ))}
+                                    </>
                                 )}
                             </div>
                         </div>
